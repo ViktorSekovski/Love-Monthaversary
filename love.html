@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story ❤️</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>❤️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Love+Light&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inria Serif', serif;
+            background: #000;
+            color: #f4f5ef;
+            overflow-x: hidden;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Content wrapper for centering */
+        #content-wrap {
+            width: 100vw;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Ensure images scale properly */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Background gradients */
+        .bg-warm-red { background: linear-gradient(180deg, #6b1428 0%, #5a1225 100%); }
+        .bg-deep-red { background: linear-gradient(180deg, #4a0e1e 0%, #3d0c1a 100%); }
+        .bg-darker-red { background: linear-gradient(180deg, #2d0a14 0%, #250812 100%); }
+        .bg-darkest { background: linear-gradient(180deg, #1a0510 0%, #12030a 100%); }
+        .bg-black { background: linear-gradient(180deg, #0a0208 0%, #000 100%); }
+        .bg-midnight { background: linear-gradient(180deg, #000 0%, #0a0208 100%); }
+        .bg-dark-rise { background: linear-gradient(180deg, #12030a 0%, #1a0510 100%); }
+        .bg-ember-glow { background: linear-gradient(180deg, #250812 0%, #2d0a14 100%); }
+        .bg-rekindle { background: linear-gradient(180deg, #3d0c1a 0%, #4a0e1e 100%); }
+        .bg-passion-returns { background: linear-gradient(180deg, #5a1225 0%, #6b1428 100%); }
+        .bg-love-burns { background: linear-gradient(180deg, #7a1832 0%, #8b1d3c 100%); }
+        .bg-bright-flame { background: linear-gradient(135deg, #9b2246 0%, #c41e3a 50%, #e63946 100%); }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-title {
+            font-family: 'Love Light', cursive;
+            font-size: clamp(3rem, 8vw, 8rem);
+            color: #ffd4e5;
+            text-shadow: 0 0 60px rgba(237,93,146,0.8);
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 40px rgba(237,93,146,0.6); }
+            50% { text-shadow: 0 0 80px rgba(237,93,146,1); }
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: #d5929e;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        .hero-letter {
+            width: clamp(80px, 15vw, 150px);
+            margin-top: 2rem;
+            animation: blink 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(237,93,146,0.6));
+        }
+
+        /* Hero card hand */
+        .hero-cards {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 3rem;
+            perspective: 1000px;
+        }
+
+        .hero-card {
+            width: clamp(60px, 12vw, 120px);
+            height: auto;
+            transform-origin: bottom center;
+            transition: transform 0.5s ease;
+            filter: drop-shadow(0 0 20px rgba(237,93,146,0.6));
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        .hero-card:nth-child(1) {
+            transform: rotate(-15deg) translateY(10px);
+            animation-delay: 0s;
+        }
+
+        .hero-card:nth-child(2) {
+            transform: rotate(-7deg) translateY(5px);
+            z-index: 2;
+            animation-delay: 0.3s;
+        }
+
+        .hero-card:nth-child(3) {
+            transform: rotate(0deg);
+            z-index: 3;
+            animation-delay: 0.6s;
+        }
+
+        .hero-card:hover {
+            transform: rotate(0deg) translateY(-20px) scale(1.1);
+            z-index: 10;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Scene */
+        .scene {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 1.2s ease, transform 1.2s ease;
+            position: relative;
+        }
+
+        .scene.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animated floral borders */
+        .scene::before,
+        .scene::after {
+            content: '';
+            position: absolute;
+            width: clamp(80px, 15vw, 200px);
+            height: clamp(80px, 15vw, 200px);
+            background-repeat: no-repeat;
+            background-size: contain;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+            pointer-events: none;
+        }
+
+        .scene.visible::before,
+        .scene.visible::after {
+            opacity: 0.5;
+            animation: wiggle 4s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-3deg) scale(1.05); }
+            75% { transform: rotate(3deg) scale(0.95); }
+        }
+
+        .scene::before {
+            top: 20px;
+            left: 20px;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><g fill="%23d5929e"><path d="M50,30Q30,30 30,50Q30,70 50,70Q70,70 70,50Q70,30 50,30M50,35Q60,35 60,50Q60,65 50,65Q40,65 40,50Q40,35 50,35"/><circle cx="50" cy="50" r="8" fill="%23ffd4e5"/><path d="M80,40Q90,35 95,45Q100,55 90,60Q80,65 75,55Q70,45 80,40"/><path d="M20,80Q15,90 25,95Q35,100 40,90Q45,80 35,75Q25,70 20,80"/></g></svg>');
+        }
+
+        .scene::after {
+            bottom: 20px;
+            right: 20px;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><g fill="%23d5929e" transform="rotate(180 100 100)"><path d="M50,30Q30,30 30,50Q30,70 50,70Q70,70 70,50Q70,30 50,30M50,35Q60,35 60,50Q60,65 50,65Q40,65 40,50Q40,35 50,35"/><circle cx="50" cy="50" r="8" fill="%23ffd4e5"/></g></svg>');
+        }
+
+        /* Side florals */
+        .floral-left,
+        .floral-right {
+            position: absolute;
+            width: clamp(60px, 10vw, 120px);
+            height: 400px;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+            pointer-events: none;
+            background-repeat: repeat-y;
+            background-size: 100% auto;
+        }
+
+        .scene.visible .floral-left,
+        .scene.visible .floral-right {
+            opacity: 0.3;
+            animation: sway 6s ease-in-out infinite;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: translateY(-50%) translateX(0); }
+            50% { transform: translateY(-50%) translateX(5px); }
+        }
+
+        .floral-left {
+            left: 0;
+            top: 50%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 400"><g fill="%23d5929e"><path d="M60,50Q40,50 40,70Q40,90 60,90Q80,90 80,70Q80,50 60,50"/><circle cx="60" cy="70" r="12" fill="%23ffd4e5"/><path d="M60,180Q42,180 42,198Q42,216 60,216Q78,216 78,198Q78,180 60,180"/><circle cx="60" cy="198" r="11" fill="%23ed5d92"/></g></svg>');
+        }
+
+        .floral-right {
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%) scaleX(-1);
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 400"><g fill="%23d5929e"><path d="M60,50Q40,50 40,70Q40,90 60,90Q80,90 80,70Q80,50 60,50"/><circle cx="60" cy="70" r="12" fill="%23ffd4e5"/><path d="M60,180Q42,180 42,198Q42,216 60,216Q78,216 78,198Q78,180 60,180"/><circle cx="60" cy="198" r="11" fill="%23ed5d92"/></g></svg>');
+        }
+
+        /* Image container */
+        .image-wrapper {
+            position: relative;
+            max-width: 600px;
+            width: 90%;
+            margin: 2rem 0;
+        }
+
+        .image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: radial-gradient(circle, rgba(237,93,146,0.3), transparent 70%);
+            filter: blur(30px);
+            z-index: -1;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .scene-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            display: block;
+            transform: scale(1);
+            transition: transform 8s ease-out;
+        }
+
+        .scene.visible .scene-image { transform: scale(1.1); }
+        .scene.visible .scene-image.zoom-out { transform: scale(1) rotate(1deg); }
+        .scene-image.zoom-out { transform: scale(1.1) rotate(-1deg); }
+        .scene.visible .scene-image.pan-left { transform: scale(1.15) translateX(-3%); }
+        .scene-image.pan-left { transform: scale(1.15) translateX(3%); }
+        .scene.visible .scene-image.pan-right { transform: scale(1.15) translateX(3%); }
+        .scene-image.pan-right { transform: scale(1.15) translateX(-3%); }
+
+        /* Text */
+        .text-container {
+            max-width: 800px;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .text-huge {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            line-height: 1.3;
+            color: #fff;
+            margin: 1rem 0;
+        }
+
+        .text-script {
+            font-family: 'Love Light', cursive;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            color: #ffd4e5;
+            text-shadow: 0 0 30px rgba(237,93,146,0.6);
+            display: inline-block;
+        }
+
+        .text-large {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            line-height: 1.6;
+            color: #f4f5ef;
+            margin: 1rem 0;
+        }
+
+        .text-medium {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.2rem, 2.5vw, 2rem);
+            line-height: 1.8;
+            color: #d5929e;
+            margin: 1rem 0;
+        }
+
+        .emphasis {
+            color: #ffd4e5;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        /* Slide animations */
+        .slide-left { transform: translateX(-100px) translateY(60px); }
+        .slide-left.visible { transform: translateX(0) translateY(0); }
+        .slide-right { transform: translateX(100px) translateY(60px); }
+        .slide-right.visible { transform: translateX(0) translateY(0); }
+        .text-above { flex-direction: column-reverse; }
+
+        /* Card hand */
+        .card-hand {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 2rem 0;
+            perspective: 1000px;
+        }
+
+        .card-hand .image-wrapper {
+            max-width: 280px;
+            transform-origin: bottom center;
+            transition: transform 0.5s ease;
+        }
+
+        .card-hand .image-wrapper:nth-child(1) { transform: rotate(-8deg) translateY(10px); }
+        .card-hand .image-wrapper:nth-child(2) { transform: rotate(-4deg) translateY(5px); z-index: 2; }
+        .card-hand .image-wrapper:nth-child(3) { transform: rotate(0deg); z-index: 3; }
+        .card-hand .image-wrapper:nth-child(4) { transform: rotate(4deg) translateY(5px); z-index: 2; }
+        .card-hand .image-wrapper:nth-child(5) { transform: rotate(8deg) translateY(10px); }
+
+        .scene.visible .card-hand .image-wrapper:hover {
+            transform: rotate(0deg) translateY(-20px) scale(1.05);
+            z-index: 10;
+        }
+
+        /* Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            font-size: clamp(1.5rem, 2vw, 2rem);
+            opacity: 0;
+            animation: float-particle 4s ease-in-out forwards;
+        }
+
+        @keyframes float-particle {
+            0% { opacity: 0; transform: translateY(20px) scale(0.5) rotate(0deg); }
+            20%, 80% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(-100px) scale(1) rotate(360deg); }
+        }
+
+        /* Final section */
+        .final {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #9b2246 0%, #c41e3a 50%, #e63946 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-title {
+            font-family: 'Love Light', cursive;
+            font-size: clamp(3rem, 7vw, 6rem);
+            color: #ffd4e5;
+            margin-bottom: 2rem;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        /* Card deck */
+        .card-deck {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: clamp(200px, 30vw, 300px);
+            margin: 3rem auto;
+            perspective: 1000px;
+        }
+
+        .deck-card {
+            position: absolute;
+            width: clamp(140px, 25vw, 200px);
+            height: clamp(180px, 30vw, 250px);
+            left: 50%;
+            top: 50%;
+            transform-origin: center;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+        }
+
+        .deck-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+
+        .deck-card:nth-child(1) { transform: translate(-50%, -50%) rotate(-15deg); z-index: 1; }
+        .deck-card:nth-child(2) { transform: translate(-50%, -50%) rotate(-7deg) translateY(-5px); z-index: 2; }
+        .deck-card:nth-child(3) { transform: translate(-50%, -50%) rotate(0deg) translateY(-10px); z-index: 3; }
+        .deck-card:nth-child(4) { transform: translate(-50%, -50%) rotate(7deg) translateY(-5px); z-index: 2; }
+
+        .deck-card:hover {
+            transform: translate(-50%, -50%) rotate(0deg) translateY(-40px) scale(1.15);
+            z-index: 10;
+        }
+
+        /* Fireworks */
+        .firework {
+            position: absolute;
+            font-size: clamp(2rem, 4vw, 3rem);
+            opacity: 0;
+            animation: firework 2s ease-out forwards;
+        }
+
+        @keyframes firework {
+            0% { opacity: 1; transform: translateY(0) scale(0.3); }
+            50% { opacity: 1; transform: translateY(-150px) scale(1.5); }
+            100% { opacity: 0; transform: translateY(-200px) scale(0.5) rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .scene { padding: 3rem 1rem; }
+            .card-hand .image-wrapper { max-width: 45%; }
+        }
+    </style>
+</head>
+<body>
+    <div id="content-wrap">
+    <!-- Hero -->
+    <section class="hero scene bg-warm-red">
+        <div class="particles" id="hero-particles"></div>
+        <h1 class="hero-title">Our Love Story</h1>
+        <p class="hero-subtitle">A journey through fate and fire</p>
+        <div class="card-hand">
+            <div class="image-wrapper">
+                <img src="./images/start.webp" alt="Beginning" class="scene-image">
+            </div>
+            <div class="image-wrapper">
+                <img src="./images/love_letter.webp" alt="Love letter" class="scene-image">
+            </div>
+            <div class="image-wrapper">
+                <img src="./images/love_letter2.webp" alt="Love letter 2" class="scene-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Scene 1 -->
+    <section class="scene slide-left bg-deep-red">
+        <div class="particles"></div>
+        <div class="floral-left"></div>
+        <div class="floral-right"></div>
+        <div class="text-container">
+            <p class="text-large">In this <span class="emphasis">grand world</span>,</p>
+            <p class="text-medium">with its infinite possibilities and countless souls...</p>
+        </div>
+        <div class="card-hand">
+            <div class="image-wrapper">
+                <img src="./images/map2.webp" alt="World map" class="scene-image pan-right">
+            </div>
+            <div class="image-wrapper">
+                <img src="./images/map.webp" alt="Old map" class="scene-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Scene 2 -->
+    <section class="scene slide-right text-above bg-deep-red">
+        <div class="particles"></div>
+        <div class="floral-left"></div>
+        <div class="floral-right"></div>
+        <div class="image-wrapper">
+            <img src="./images/back_again.webp" alt="Ancient lovers" class="scene-image zoom-out">
+        </div>
+        <div class="text-container">
+            <span class="text-script">We somehow</span>
+            <p class="text-huge">found each other</p>
+        </div>
+    </section>
+
+    <!-- Scene 3 -->
+    <section class="scene slide-left bg-darker-red">
+        <div class="particles"></div>
+        <div class="floral-left"></div>
+        <div class="floral-right"></div>
+        <div class="text-container">
+            <p class="text-huge">Our love <span class="text-script">burned bright</span></p>
+        </div>
+        <div class="image-wrapper">
+            <img src="./images/burn_bright.webp" alt="Burning love" class="scene-image">
+        </div>
+        <div class="text-container">
+            <p class="text-large">Overfed off its own <span class="emphasis">momentum</span></p>
+        </div>
+    </section>
+
+    <!-- Scene 4 -->
+    <section class="scene slide-right bg-darkest">
+        <div class="particles"></div>
+        <div class="floral-left"></div>
+        <div class="floral-right"></div>
+        <div class="text-container">
+            <p class="text-large">Pretty soon, <span class="emphasis">clear skies</span></p>
+            <p class="text-large">got overwhelmed by clouds and darkness</p>
+        </div>
+        <div class="card-hand">
+            <div class="image-wrapper">
+                <img src="./images/burn_down.webp" alt="Burning hand" class="scene-image pan-left">
+            </div>
+            <div class="image-wrapper">
+                <img src="./images/heart_pang.webp" alt="Panging for love" class="scene-image pan-right">
+            </div>
+        </div>
+        <div class="text-container">
+            <p class="text-large">and our love burned to <span class="emphasis">ashes</span></p>
+        </div>
+    </section>
+
+    <!-- Scene 5 -->
+    <section class="scene slide-left bg-black">
+        <div class="particles"></div>
+        <div class="floral-left"></div>
+        <div class="floral-right"></div>
+        <div class="text-container">
+            <p class="text-large">Though filled with distractions,</p>
+            <p class="text-large">obligations, even many <span class="emphasis">suitors</span></p>
+            <p class="text-medium" style="margin-top: 1rem; opacity: 0.9;">The world tried to fill the void left behind</p>
+        </div>
+        <div class="card-hand">
+            <div class="image-wrapper">
+                <img src="./images/gossip.webp" alt="Friends gossiping" class="scene-image pan-left">
+            </div>
+            <div class="image-wrapper">
+                <img src="./images/many.webp" alt="Many men" class="scene-image pan-right">
+            </div>
+        </div>
+        <div class="text-container">
+            <p class="text-medium">You could not focus on any of it</p>
+            <p class="text-medium" style="margin-top: 0.5rem; opacity: 0.9;">For none could compare to what was lost</p>
+        </div>
+    </section>
+
+    <!-- Scene 6 -->
+    <section class="scene slide-right text-above bg-midnight">
+        <div class="particles"></div>
+        <div class="floral-left"></div>
+        <div class="floral-right"></div>
+        <div class="card-hand">
+            <div class="image-wrapper">
+                <img src="./images/addonis.webp" alt="Divine beauty" class="scene-image">
+            </div>
+            <div class="image-wrapper">
+                <img src="./images/one.webp" alt="The one" class="scene-image pan-right">
+            </div>
+        </div>
+        <div class="text-container">
+            <p class="text-large">The one that has your <span class="emphasis">heart</span></p>
+            <p class="text-medium">was not around</p>
+            <p class="text-medium" style="margin-top: 1rem; opacity: 0.9;">And every moment felt incomplete without them</p>
+        </div>
+    </section>
+
+    <!-- Scene 7 -->
+    <section class="scene slide-left bg-dark-rise">
+        <div class="particles"></div>
+        <div class="floral-left"></div>
+        <div class="floral-right"></div>
+        <div class="text-container">
+            <p class="text-medium">Your glance drifted away,</p>
+            <p class="text-large">constantly on the <span class="emphasis">lookout</span></p>
+            <p class="text-medium">for what was missing</p>
+            <p class="text-medium" style="margin-top: 1rem; opacity: 0.9;">Searching every horizon for a familiar silhouette</p>
+        </div>
+        <div class="card-hand">
+            <div class="image-wrapper">
+                <img src="./images/look.webp" alt="Divine look" class="scene-image">
+            </div>
+            <div class="image-wrapper">
+                <img src="./images/wanward_look.webp" alt="Wanward look" class="scene-image pan-right">
+            </div>
+        </div>
+    </section>
+
+    <!-- Scene 8 -->
+    <section class="scene slide-right bg-ember-glow">
+        <div class="particles"></div>
+        <div class="floral-left"></div>
+        <div class="floral-right"></div>
+        <div class="text-container">
+            <p class="text-medium">It took too long,</p>
+            <p class="text-large">but I finally <span class="text-script">took off</span></p>
+            <p class="text-large">on the right path</p>
+            <p class="text-medium" style="margin-top: 1rem; opacity: 0.9;">Courage finally overtook fear, hope conquered doubt</p>
+        </div>
+        <div class="image-wrapper">
+            <img src="./images/take_off.webp" alt="Take off" class="scene-image">
+        </div>
+    </section>
+
+    <!-- Scene 9 -->
+    <section class="scene slide-left text-above bg-rekindle">
+        <div class="particles"></div>
+        <div class="floral-left"></div>
+        <div class="floral-right"></div>
+        <div class="card-hand">
+            <div class="image-wrapper">
+                <img src="./images/love_stamp.webp" alt="Love stamp" class="scene-image">
+            </div>
+            <div class="image-wrapper">
+                <img src="./images/love_stamp2.webp" alt="Love stamp 2" class="scene-image">
+            </div>
+        </div>
+        <div class="text-container">
+            <p class="text-large">To win your heart once more</p>
+            <p class="text-medium">and unite the <span class="emphasis">greatest love</span> of our lives</p>
+            <p class="text-medium" style="margin-top: 1rem; opacity: 0.9;">To reclaim what should have never been lost</p>
+        </div>
+    </section>
+
+    <!-- Scene 10 -->
+    <section class="scene slide-right bg-rekindle">
+        <div class="particles"></div>
+        <div class="floral-left"></div>
+        <div class="floral-right"></div>
+        <div class="text-container">
+            <p class="text-medium">It did not start promisingly,</p>
+            <p class="text-large">taking much <span class="emphasis">persuasion</span></p>
+            <p class="text-medium" style="margin-top: 1rem; opacity: 0.9;">Words had to rebuild what silence had torn down</p>
+        </div>
+        <div class="card-hand">
+            <div class="image-wrapper">
+                <img src="./images/you_love.webp" alt="You in love" class="scene-image">
+            </div>
+            <div class="image-wrapper">
+                <img src="./images/persuasion.webp" alt="Love persuasion" class="scene-image">
+            </div>
+            <div class="image-wrapper">
+                <img src="./images/hold_me.webp" alt="Hold me" class="scene-image zoom-out">
+            </div>
+        </div>
+    </section>
+
+    <!-- Scene 11 -->
+    <section class="scene slide-left text-above bg-passion-returns">
+        <div class="particles"></div>
+        <div class="floral-left"></div>
+        <div class="floral-right"></div>
+        <div class="card-hand">
+            <div class="image-wrapper">
+                <img src="./images/whisper.webp" alt="Whisper" class="scene-image pan-left">
+            </div>
+            <div class="image-wrapper">
+                <img src="./images/taken.webp" alt="Swept away" class="scene-image">
+            </div>
+        </div>
+        <div class="text-container">
+            <p class="text-large">But gladly, <span class="text-script">love</span> was on our side</p>
+            <p class="text-large">A whisper from <span class="emphasis">fate</span></p>
+            <p class="text-medium">was enough to take you away</p>
+            <p class="text-medium" style="margin-top: 1rem; opacity: 0.9;">And show you the truth your heart already knew</p>
+        </div>
+    </section>
+
+    <!-- Scene 12 -->
+    <section class="scene slide-right text-above bg-love-burns">
+        <div class="particles"></div>
+        <div class="floral-left"></div>
+        <div class="floral-right"></div>
+        <div class="card-hand">
+            <div class="image-wrapper">
+                <img src="./images/happy_together.webp" alt="Together" class="scene-image zoom-out">
+            </div>
+            <div class="image-wrapper">
+                <img src="./images/saved.webp" alt="Saved" class="scene-image pan-right">
+            </div>
+        </div>
+        <div class="text-container">
+            <p class="text-large">And show you how life can be <span class="text-script">together</span></p>
+            <p class="text-large">What it <span class="emphasis">should be like</span> for both of us</p>
+            <p class="text-medium" style="margin-top: 1rem; opacity: 0.9;">Every moment a confirmation, every day a celebration</p>
+        </div>
+    </section>
+
+    <!-- Scene 13 -->
+    <section class="scene slide-left bg-love-burns">
+        <div class="particles"></div>
+        <div class="floral-left"></div>
+        <div class="floral-right"></div>
+        <div class="text-container">
+            <p class="text-medium">While now we must content ourselves</p>
+            <p class="text-large">with <span class="emphasis">letters and trinkets</span> apart...</p>
+            <p class="text-medium" style="margin-top: 1rem; opacity: 0.9;">Each word a bridge across the distance between us</p>
+        </div>
+        <div class="card-hand">
+            <div class="image-wrapper">
+                <img src="./images/love_postcard.webp" alt="Love postcard" class="scene-image pan-right">
+            </div>
+            <div class="image-wrapper">
+                <img src="./images/valentine_postcard.webp" alt="Valentine" class="scene-image">
+            </div>
+            <div class="image-wrapper">
+                <img src="./images/valentine_postcard2.webp" alt="Valentine 2" class="scene-image">
+            </div>
+            <div class="image-wrapper">
+                <img src="./images/valentine_postcard4.webp" alt="Valentine 4" class="scene-image pan-left">
+            </div>
+        </div>
+        <div class="text-container">
+            <p class="text-large">Soon we shall <span class="text-script">reunite</span></p>
+            <p class="text-medium">and all will be better than it has ever been</p>
+            <p class="text-medium" style="margin-top: 1rem; opacity: 0.9;">For this time, we know the value of what we have</p>
+        </div>
+    </section>
+
+    <!-- Final -->
+    <section class="final scene bg-bright-flame">
+        <div id="fireworks"></div>
+        <h2 class="final-title">Happy Monthaversary</h2>
+        <p class="text-large" style="color: #ffd4e5;">Or seven monthaversary,</p>
+        <p class="text-medium" style="color: #ffd4e5;">since we count both</p>
+        <p class="text-medium" style="color: #ffd4e5; margin-top: 1rem; opacity: 0.9;">Every single day a treasure, every moment a gift</p>
+        
+        <div class="card-hand">
+            <div class="image-wrapper">
+                <img src="./images/valentine_stamp.webp" alt="Valentine stamp" class="scene-image">
+            </div>
+            <div class="image-wrapper">
+                <img src="./images/burn_back.webp" alt="Burn back" class="scene-image">
+            </div>
+            <div class="image-wrapper">
+                <img src="./images/heart_grab.webp" alt="Heart grab" class="scene-image">
+            </div>
+            <div class="image-wrapper">
+                <img src="./images/stole_heart.webp" alt="Stolen heart" class="scene-image">
+            </div>
+        </div>
+
+        <p class="text-huge" style="color: #fff; margin-top: 2rem;">
+            <span class="text-script">I'm overjoyed</span>
+        </p>
+        <p class="text-large" style="color: #ffd4e5;">for having you!</p>
+        <p class="text-medium" style="color: #ffd4e5; margin-top: 1rem; opacity: 0.9;">Here's to us, to our journey, and to forever more</p>
+        
+        <div style="margin-top: 3rem; font-size: 4rem;">
+            ♥ ∞ ♥
+        </div>
+    </section>
+
+    <script>
+        const sceneParticles = {
+            0: ['💌', '💖', '💝', '🌸'],
+            1: ['✨', '💫', '⭐'],
+            2: ['🔥', '💥', '✨'],
+            3: ['⚡', '🌩️', '☁️', '💔'],
+            4: ['💭', '🌫️'],
+            5: ['💔', '😢'],
+            6: ['👀', '💭'],
+            7: ['🗺️', '✈️'],
+            8: ['💌', '💕', '💖'],
+            9: ['💬', '🤝'],
+            10: ['💕', '❤️', '💖'],
+            11: ['💑', '💕', '❤️'],
+            12: ['💌', '✉️', '💝']
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    const idx = Array.from(document.querySelectorAll('.scene')).indexOf(entry.target);
+                    if (sceneParticles[idx]) {
+                        createParticles(entry.target, sceneParticles[idx]);
+                    }
+                }
+            });
+        }, { threshold: 0.2 });
+
+        function createParticles(scene, symbols) {
+            const container = scene.querySelector('.particles');
+            if (!container) return;
+            
+            for (let i = 0; i < symbols.length * 3; i++) {
+                setTimeout(() => {
+                    const p = document.createElement('div');
+                    p.className = 'particle';
+                    p.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                    p.style.left = Math.random() * 100 + '%';
+                    p.style.top = Math.random() * 80 + 10 + '%';
+                    p.style.animationDelay = Math.random() * 0.5 + 's';
+                    container.appendChild(p);
+                    setTimeout(() => p.remove(), 5000);
+                }, i * 200);
+            }
+        }
+
+        document.querySelectorAll('.scene').forEach(scene => observer.observe(scene));
+
+        // Hero particles
+        const heroSymbols = ['💌', '💖', '💝', '🌸', '✉️', '💐'];
+        const heroContainer = document.getElementById('hero-particles');
+        setInterval(() => {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.textContent = heroSymbols[Math.floor(Math.random() * heroSymbols.length)];
+            p.style.left = Math.random() * 100 + '%';
+            p.style.top = Math.random() * 80 + 10 + '%';
+            heroContainer.appendChild(p);
+            setTimeout(() => p.remove(), 5000);
+        }, 800);
+
+        // Fireworks
+        const fireworksContainer = document.getElementById('fireworks');
+        const fireworkSymbols = ['💥', '✨', '💖', '💕', '💗', '💓', '💝', '🎆', '🎇', '⭐', '💫'];
+        
+        setInterval(() => {
+            const fw = document.createElement('div');
+            fw.className = 'firework';
+            fw.textContent = fireworkSymbols[Math.floor(Math.random() * fireworkSymbols.length)];
+            fw.style.left = Math.random() * 100 + '%';
+            fw.style.bottom = '0';
+            fw.style.animationDelay = Math.random() * 0.5 + 's';
+            fireworksContainer.appendChild(fw);
+            setTimeout(() => fw.remove(), 2500);
+        }, 300);
+    </script>
+    </div>
+</body>
+</html>
